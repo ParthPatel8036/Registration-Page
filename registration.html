@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <!-- <link rel="stylesheet" href="temp.css" /> -->
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Script -->
+    <script>
+      function Validate() {
+        var password = document.getElementById("Password").value;
+        var confirmPassword = document.getElementById("ConfirmPassword").value;
+        if (password != confirmPassword) {
+          alert("Passwords do not match.");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/register" method="post">
+        <h2>Register Here!</h2>
+
+        <label for="Name"><b>Name:</b></label>
+        <input type="text" id="name" name="name" required /><br />
+        <br />
+        <label for="email"><b>Email Address:</b></label>
+        <input type="email" id="email" required />
+        <br /><br />
+        <label for="dob"><b>Date of Birth:</b></label>
+        <input type="date" id="lname" name="dob" required />
+        <br /><br />
+        <label for="password"><b>Password:</b></label>
+        <input
+          type="password"
+          id="Password"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]*[A-Z]).{5,10}"
+          title="Password must contain 5 - 10 letters with at least 2 uppercase letters, 1 number, and 1 special character."
+          minlength="5"
+          maxlength="10"
+          required
+        />
+        <br /><br />
+        <label for="confirmpassword"><b>Confirm Password:</b></label>
+        <input
+          type="password"
+          id="ConfirmPassword"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]*[A-Z]).{5,10}"
+          title="Password must contain 5 - 10 letters with at least 2 uppercase letters, 1 number, and 1 special character."
+          minlength="5"
+          maxlength="10"
+          required
+        /><br /><br />
+        <p id="message"></p>
+        <button type="submit" onclick="return checkPassword()">Submit</button>
+        <button type="cancel">Cancel</button>
+      </form>
+    </div>
+  </body>
+</html>
